@@ -5,8 +5,9 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 10px 0px;
 }
 
 header > div {
-  padding: 0px 20px;
+  padding: 0px 30px;
 }
