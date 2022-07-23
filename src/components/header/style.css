@@ -1,0 +1,12 @@
+header {
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header > div {
+  padding: 0px 20px;
+}
