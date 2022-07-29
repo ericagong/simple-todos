@@ -1,3 +1,5 @@
+// TODO 리듀서명 짓는 컨벤션 알아보기
+
 // Actions
 const LOAD = "todoList/todos/LOAD";
 const CREATE = "todoList/todos/CREATE";
@@ -58,6 +60,7 @@ export function removeTodo(todo_index) {
 }
 
 // Reducer
+// TODO 순수함수 형태로 잘 구현했는지 알아보기
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD:

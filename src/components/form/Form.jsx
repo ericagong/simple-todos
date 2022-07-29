@@ -7,6 +7,7 @@ const Form = (props) => {
   const new_title = React.useRef("");
   const new_content = React.useRef("");
   const dispatch = useDispatch();
+  // TODO ref 대신 event.current.value로 접근하기! ref 사용 지양!!, value로 값 주기!
   const addTodo = () => {
     dispatch(createTodo(new_title.current.value, new_content.current.value));
     new_title.current.value = "";

@@ -1,9 +1,9 @@
-import Layout from "./components/layout/Layout";
+import TodoList from "./pages/TodoList";
 
 function App() {
   return (
     <div className='App'>
-      <Layout></Layout>
+      <TodoList></TodoList>
     </div>
   );
 }
