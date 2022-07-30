@@ -19,13 +19,13 @@
   justify-content: space-around;
 }
 
-.Btn {
+.todoButton {
   width: 130px;
   background-color: #eeeeee;
   color: black;
 }
 
-.Btn:hover {
+.todoButton:hover {
   background-color: #256ef1;
   color: white;
 }
