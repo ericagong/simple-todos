@@ -2,7 +2,7 @@
 
 ### Project
 
-<iframe src="https://giphy.com/embed/xFfygDSgTFAl43lt1b" width="480" height="302" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/xFfygDSgTFAl43lt1b">via GIPHY</a></p>
+![TodoList Preview](https://user-images.githubusercontent.com/48196721/182003615-edcd0f87-bfae-4f4a-a649-59691da6dea7.gif)
 
 ### Structure Description
 

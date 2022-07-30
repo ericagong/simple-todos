@@ -14,7 +14,7 @@ const Detail = (props) => {
   };
   return (
     <StyledBox>
-      <StyledButton onClick={clickHandler}>이전으로</StyledButton>
+      <StyledButton onClick={clickHandler}>Go Back</StyledButton>
       <StyledContents>{`ID: ${todo.id}`}</StyledContents>
       <StyledTitle>{todo.title}</StyledTitle>
       <StyledContents>{todo.contents}</StyledContents>
