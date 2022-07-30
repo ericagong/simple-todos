@@ -1,16 +1,17 @@
-import "./style.css";
-import React from "react";
+import styled from "styled-components";
+
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTodo } from "../../redux/modules/todos";
 
 // TODO enter 쳤을 때도 기능하도록하기
-// TODO 스타일 고치기
 const Form = (props) => {
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   const dispatch = useDispatch();
   const changeHandler = (event) => {
-    const id = event.target.className;
+    const id = event.target.id;
     if (id === "title") {
       setTitle(event.target.value);
     } else {
@@ -25,32 +26,70 @@ const Form = (props) => {
     setContent("");
   };
   return (
-    <div className='wrapper'>
-      <form>
-        <div className='container'>
-          <label htmlFor='title'>제목</label>
-          <input
-            type='text'
-            className='title'
-            value={title}
-            onChange={changeHandler}
-          />
-        </div>
-        <div className='container'>
-          <label htmlFor='content'>내용</label>
-          <input
-            type='text'
-            className='content'
-            value={content}
-            onChange={changeHandler}
-          />
-        </div>
-        <button type='submit' onClick={addTodo}>
-          추가하기
-        </button>
-      </form>
-    </div>
+    <StyledForm>
+      <StyledContainer>
+        <StyledLabel htmlFor='title'>Title</StyledLabel>
+        <StyledInput
+          type='text'
+          id='title'
+          value={title}
+          onChange={changeHandler}
+        />
+      </StyledContainer>
+      <StyledContainer>
+        <StyledLabel htmlFor='content'>Contents</StyledLabel>
+        <StyledInput
+          type='text'
+          id='content'
+          value={content}
+          onChange={changeHandler}
+        />
+      </StyledContainer>
+      <StyledButton
+        type='submit'
+        onClick={addTodo}
+        disabled={title && content ? false : true}
+      >
+        Submit
+      </StyledButton>
+    </StyledForm>
   );
 };
 
 export default Form;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100px;
+  background-color: #eeeeee;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const StyledContainer = styled.div``;
+
+const StyledLabel = styled.label`
+  font-size: 15px;
+`;
+
+const StyledInput = styled.input`
+  margin-left: 30px;
+  border: none;
+  border-radius: 5px;
+  width: 30vw;
+  height: 30px;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+  background-color: #256ef1;
+  color: white;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;

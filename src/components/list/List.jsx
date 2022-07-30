@@ -1,4 +1,5 @@
-import "./style.css";
+import styled from "styled-components";
+
 import Todo from "../todo/Todo";
 
 const List = ({ list }) => {
@@ -12,7 +13,13 @@ const List = ({ list }) => {
       isDone={todo.isDone}
     ></Todo>
   ));
-  return <div className='list'>{todos}</div>;
+  return <StyledList>{todos}</StyledList>;
 };
 
 export default List;
+
+const StyledList = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;

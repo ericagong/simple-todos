@@ -1,5 +1,3 @@
-// TODO 리듀서명 짓는 컨벤션 알아보기
-
 // Actions
 const LOAD = "todoList/todos/LOAD";
 const CREATE = "todoList/todos/CREATE";
@@ -60,14 +58,11 @@ export function removeTodo(todo_index) {
 }
 
 // Reducer
-// TODO 순수함수 형태로 잘 구현했는지 알아보기
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD:
       return state;
     case CREATE:
-      // TODO id 구하는 방법
-      // const new_id = Math.max(...state.todos) + 1;
       const todo_ids = state.todos.map((todo) => todo.id);
       const new_id = Math.max(...todo_ids) + 1;
       const new_todo = {
