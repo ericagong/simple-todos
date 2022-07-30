@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // TODO 내부에서 하나만 가져오는게 더 효율적인 방식이긴 할까?
 const Detail = (props) => {

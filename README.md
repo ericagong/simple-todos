@@ -2,20 +2,53 @@
 
 ### Structure Description
 
+#### Pages
+
+- Home :
+  - Main page with todoList view, where user can **create, read, update(toggle `isDone`), delete** each todo.
+  - If user clicks `detail` link of each todo, redirects to `/about/:todo_id` page.
+- About :
+  - Detail page of each todo, where user can **read todo id, title, contents**.
+  - If user clicks `Go Back` button, redirects to previous page.
+- Not Found :
+  - 404 Not Found page for wrong urls.
+
 #### Components
 
-#### Pages
+- Layout : Layout for Home view.
+- Header : Header, which contains information about project subject and programmed language.
+- Form : Form to create new todo.
+  - Form consists of two input fields(**title and contents**) and one `Submit` button.
+  - If user skipped to fill one of two inputs, `Submit button` disabled.
+  - If user typed both fields and clicked `Submit` button, new todo created to store.
+- TodoList : TodoList view.
+  - It has two categories of todoList.(**Working and Done**)
+  - Working shows todos whose state `isDone : false`.
+  - Done shows todos whose staet `isDone : true`
+- List : List contains of set of todos.
+- Todo : Todo shows **todo's title, contents and call to action buttons**.
+  - If title or contents is too long, summarized each with `...` .
+  - If user clicks `Done` or `Delete` button, todo's isDone state toggles.
+  - If user clicks `Delete` button, that todo deletes from store.
+  - If user clicks `Detail` link, it redirects to `/about/:todo_id` page.
 
 #### Redux
 
-### Updated
+- todos : `todos module` contains `ACTION`, `ACTION CREATOR`, `INITIAL STATE`, `REDUCER` related to **CRUD of todoList**.
+- configureStore : create root store with `todos module`.
 
-- [x] refactoring 하기
-- [x] styled-components 적용하기
-- [x] 최대, 최소 width 지정, 가운데 배치
-- [x] redux 순수함수인지 확인
-- [x] form input 값 중 하나라도 비어있는 경우 버튼 disable
-- [x] react-router-dom (v6) 연결하기
-- [x] title, content 내용 너무 길면 요약하기
+### Updated Details
 
-- [ ] form 엔터 쳤을 때도 동작하게 바꾸기
+- [x] Refactoring codes
+- [x] Change css files to styled-components
+- [x] Add max-width, min-width for each page, align items on center of the page
+- [x] Check redux is pure function
+- [x] Disable `Submit` button if two inputs are not validated
+- [x] Route with react-router-dom (v6)
+- [x] Summarize title and contents of todo in Home page if it is too long
+
+### Need to update following Details
+
+- [ ] Change createSotre
+- [ ] Add keyon handler to form component
+- [ ] Try nanoid package
