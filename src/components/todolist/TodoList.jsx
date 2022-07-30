@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import List from "../list/List";
 
-const Contents = (props) => {
+const TodoList = (props) => {
   const allTodos = useSelector(({ todos }) => todos.todos);
   const workingList = allTodos.filter((todo) => !todo.isDone);
   const doneList = allTodos.filter((todo) => todo.isDone);
@@ -22,7 +22,7 @@ const Contents = (props) => {
   );
 };
 
-export default Contents;
+export default TodoList;
 
 const StyledLayout = styled.div`
   display: flex;

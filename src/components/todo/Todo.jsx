@@ -1,8 +1,8 @@
 import styled from "styled-components";
-
 import React from "react";
 import { useDispatch } from "react-redux";
 import { updateTodo, removeTodo } from "../../redux/modules/todos";
+import { Link } from "react-router-dom";
 
 // id 기반 상세 페이지 전환 라우터 연결하기!
 const Todo = ({ id, title, content, isDone }) => {
@@ -15,8 +15,13 @@ const Todo = ({ id, title, content, isDone }) => {
   };
   return (
     <StyledBox>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledContents>{content}</StyledContents>
+      <StyledLink to={`/detail/${id}`}>Detail</StyledLink>
+      <StyledTitle>
+        {title.length < 20 ? title : title.slice(0, 17).concat("...")}
+      </StyledTitle>
+      <StyledContents>
+        {content.length <= 30 ? content : content.slice(0, 27).concat("...")}
+      </StyledContents>
       <StyledWrapper>
         <StyledButton onClick={deleteHandler} className='todoButton'>
           Delete
@@ -40,6 +45,13 @@ const StyledBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const StyledLink = styled(Link)`
+  padding-left: 250px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #256ef1;
 `;
 
 const StyledTitle = styled.h3`

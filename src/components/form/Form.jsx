@@ -59,6 +59,8 @@ const Form = (props) => {
 export default Form;
 
 const StyledForm = styled.form`
+  max-width: 1200px;
+  min-width: 800px;
   display: flex;
   flex-direction: row;
   width: 100vw;

@@ -12,6 +12,8 @@ const Header = (props) => {
 export default Header;
 
 const StyledHeader = styled.header`
+  max-width: 1200px;
+  min-width: 800px;
   width: 100vw;
   height: 5vh;
   display: flex;
