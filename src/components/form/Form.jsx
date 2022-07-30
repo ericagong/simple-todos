@@ -7,7 +7,7 @@ import { createTodo } from "../../redux/modules/todos";
 // TODO enter 쳤을 때도 기능하도록하기
 const Form = (props) => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [contents, setContents] = useState("");
 
   const dispatch = useDispatch();
   const changeHandler = (event) => {
@@ -15,15 +15,15 @@ const Form = (props) => {
     if (id === "title") {
       setTitle(event.target.value);
     } else {
-      setContent(event.target.value);
+      setContents(event.target.value);
     }
   };
 
   const addTodo = (event) => {
     event.preventDefault();
-    dispatch(createTodo(title, content));
+    dispatch(createTodo(title, contents));
     setTitle("");
-    setContent("");
+    setContents("");
   };
   return (
     <StyledForm>
@@ -37,18 +37,18 @@ const Form = (props) => {
         />
       </StyledContainer>
       <StyledContainer>
-        <StyledLabel htmlFor='content'>Contents</StyledLabel>
+        <StyledLabel htmlFor='contents'>Contents</StyledLabel>
         <StyledInput
           type='text'
-          id='content'
-          value={content}
+          id='contents'
+          value={contents}
           onChange={changeHandler}
         />
       </StyledContainer>
       <StyledButton
         type='submit'
         onClick={addTodo}
-        disabled={title && content ? false : true}
+        disabled={title && contents ? false : true}
       >
         Submit
       </StyledButton>

@@ -9,7 +9,7 @@ const List = ({ list }) => {
       key={todo.id}
       id={todo.id}
       title={todo.title}
-      content={todo.content}
+      contents={todo.contents}
       isDone={todo.isDone}
     ></Todo>
   ));

@@ -9,32 +9,32 @@ const initialState = {
   todos: [
     {
       id: 0,
-      title: "title1..!",
-      content: "contents...",
-      isDone: false,
+      title: "Wake up in the morning",
+      contents: "Don't sleep over 8 hours!",
+      isDone: true,
     },
     {
       id: 1,
-      title: "title2...",
-      content: "contents...",
+      title: "Prepare present for HH",
+      contents: "Check following options: 1. wallet 2. galaxy watch",
       isDone: false,
     },
     {
       id: 2,
-      title: "title3...",
-      content: "contents...",
+      title: "Order snacks for Star - he needs snack desperately",
+      contents: "1. partymix * 30 2. CIAOchur * 5 packs",
       isDone: false,
     },
     {
       id: 3,
-      title: "title4...",
-      content: "contents...",
+      title: "Talk with mommy",
+      contents: "explain about my planB, which means nothing.",
       isDone: true,
     },
     {
       id: 4,
-      title: "title5...",
-      content: "contents...",
+      title: "Get in gather town",
+      contents: "CS study @ 11:00 Team meeting @ 16:00",
       isDone: true,
     },
   ],
@@ -45,8 +45,8 @@ export function loadTodos() {
   return { type: LOAD };
 }
 
-export function createTodo(todo_title, todo_content) {
-  return { type: CREATE, todo_title, todo_content };
+export function createTodo(todo_title, todo_contents) {
+  return { type: CREATE, todo_title, todo_contents };
 }
 
 export function updateTodo(todo_index) {
@@ -68,7 +68,7 @@ export default function reducer(state = initialState, action = {}) {
       const new_todo = {
         id: new_id,
         title: action.todo_title,
-        content: action.todo_content,
+        contents: action.todo_contents,
         isDone: false,
       };
       const new_todos = [...state.todos, new_todo];

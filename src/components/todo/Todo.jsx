@@ -5,7 +5,7 @@ import { updateTodo, removeTodo } from "../../redux/modules/todos";
 import { Link } from "react-router-dom";
 
 // id 기반 상세 페이지 전환 라우터 연결하기!
-const Todo = ({ id, title, content, isDone }) => {
+const Todo = ({ id, title, contents, isDone }) => {
   const dispatch = useDispatch();
   const toggleHandler = () => {
     dispatch(updateTodo(id));
@@ -15,12 +15,12 @@ const Todo = ({ id, title, content, isDone }) => {
   };
   return (
     <StyledBox>
-      <StyledLink to={`/detail/${id}`}>Detail</StyledLink>
+      <StyledLink to={`/about/${id}`}>Detail</StyledLink>
       <StyledTitle>
-        {title.length < 20 ? title : title.slice(0, 17).concat("...")}
+        {title.length <= 28 ? title : title.slice(0, 26).concat("...")}
       </StyledTitle>
       <StyledContents>
-        {content.length <= 30 ? content : content.slice(0, 27).concat("...")}
+        {contents.length <= 36 ? contents : contents.slice(0, 33).concat("...")}
       </StyledContents>
       <StyledWrapper>
         <StyledButton onClick={deleteHandler} className='todoButton'>
@@ -52,6 +52,9 @@ const StyledLink = styled(Link)`
   font-size: 13px;
   text-decoration: none;
   color: #256ef1;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const StyledTitle = styled.h3`
