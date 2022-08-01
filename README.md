@@ -52,3 +52,12 @@
 - [x] Summarize title and contents of todo in Home page if it is too long
 
 ### Need to update following Details
+
+- [ ] Change createSotre to configureStore from redux-toolkit
+- [ ] Add keyon handler to form component
+- [ ] Try nanoid package
+- [ ] Try immer library
+- [ ] use reducer spread ...state
+- [ ] logger devtools
+- [ ] onClick(e) => delete(e.target.value)
+- [ ] div wrapper -> <></>
