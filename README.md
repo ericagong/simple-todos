@@ -52,7 +52,3 @@
 - [x] Summarize title and contents of todo in Home page if it is too long
 
 ### Need to update following Details
-
-- [ ] Change createSotre
-- [ ] Add keyon handler to form component
-- [ ] Try nanoid package
