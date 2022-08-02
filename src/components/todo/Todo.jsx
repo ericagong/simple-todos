@@ -7,20 +7,23 @@ import { Link } from "react-router-dom";
 // id 기반 상세 페이지 전환 라우터 연결하기!
 const Todo = ({ id, title, contents, isDone }) => {
   const dispatch = useDispatch();
+  const payload = { id };
   const toggleHandler = () => {
-    dispatch(updateTodo(id));
+    dispatch(updateTodo(payload));
   };
   const deleteHandler = () => {
-    dispatch(removeTodo(id));
+    dispatch(removeTodo(payload));
   };
   return (
     <StyledBox>
       <StyledLink to={`/about/${id}`}>Detail</StyledLink>
       <StyledTitle>
-        {title.length <= 28 ? title : title.slice(0, 26).concat("...")}
+        {title?.length <= 28 ? title : title?.slice(0, 26).concat("...")}
       </StyledTitle>
       <StyledContents>
-        {contents.length <= 36 ? contents : contents.slice(0, 33).concat("...")}
+        {contents?.length <= 36
+          ? contents
+          : contents?.slice(0, 33).concat("...")}
       </StyledContents>
       <StyledWrapper>
         <StyledButton onClick={deleteHandler} className='todoButton'>

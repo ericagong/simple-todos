@@ -21,7 +21,8 @@ const Form = (props) => {
 
   const addTodo = (event) => {
     event.preventDefault();
-    dispatch(createTodo(title, contents));
+    const payload = { title, contents };
+    dispatch(createTodo(payload));
     setTitle("");
     setContents("");
   };

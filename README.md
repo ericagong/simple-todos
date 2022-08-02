@@ -50,6 +50,7 @@
 - [x] Disable `Submit` button if two inputs are not validated
 - [x] Route with react-router-dom (v6)
 - [x] Summarize title and contents of todo in Home page if it is too long
+- [x] use reducer spread ...state
 
 ### Need to update following Details
 
@@ -57,7 +58,6 @@
 - [ ] Add keyon handler to form component
 - [ ] Try nanoid package
 - [ ] Try immer library
-- [ ] use reducer spread ...state
 - [ ] logger devtools
 - [ ] onClick(e) => delete(e.target.value)
-- [ ] div wrapper -> <></>
+- [x] div wrapper -> <></>

@@ -4,6 +4,23 @@ const CREATE = "todoList/todos/CREATE";
 const UPDATE = "todoList/todos/UPDATE";
 const REMOVE = "todoList/todos/REMOVE";
 
+// Action Creators
+export function loadTodos() {
+  return { type: LOAD };
+}
+
+export function createTodo(payload) {
+  return { type: CREATE, payload };
+}
+
+export function updateTodo(payload) {
+  return { type: UPDATE, payload };
+}
+
+export function removeTodo(payload) {
+  return { type: REMOVE, payload };
+}
+
 // initialState
 const initialState = {
   todos: [
@@ -40,23 +57,6 @@ const initialState = {
   ],
 };
 
-// Action Creators
-export function loadTodos() {
-  return { type: LOAD };
-}
-
-export function createTodo(todo_title, todo_contents) {
-  return { type: CREATE, todo_title, todo_contents };
-}
-
-export function updateTodo(todo_index) {
-  return { type: UPDATE, todo_index };
-}
-
-export function removeTodo(todo_index) {
-  return { type: REMOVE, todo_index };
-}
-
 // Reducer
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -67,25 +67,25 @@ export default function reducer(state = initialState, action = {}) {
       const new_id = Math.max(...todo_ids) + 1;
       const new_todo = {
         id: new_id,
-        title: action.todo_title,
-        contents: action.todo_contents,
+        title: action.payload.title,
+        contents: action.payload.contents,
         isDone: false,
       };
       const new_todos = [...state.todos, new_todo];
-      return { todos: new_todos };
+      return { ...state, todos: new_todos };
     case UPDATE:
       const updated_todos = state.todos.map((todo) => {
-        if (todo.id === action.todo_index) {
+        if (todo.id === action.payload.id) {
           const updated_todo = { ...todo, isDone: !todo.isDone };
           return updated_todo;
         } else return todo;
       });
-      return { todos: updated_todos };
+      return { ...state, todos: updated_todos };
     case REMOVE:
       const deleted_todos = state.todos.filter(
-        (todo) => todo.id !== action.todo_index
+        (todo) => todo.id !== action.payload.id
       );
-      return { todos: deleted_todos };
+      return { ...state, todos: deleted_todos };
     default:
       return state;
   }
