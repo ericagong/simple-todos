@@ -51,13 +51,13 @@
 - [x] Route with react-router-dom (v6)
 - [x] Summarize title and contents of todo in Home page if it is too long
 - [x] use reducer spread ...state
+- [x] onClick(e) => delete(e.target.value)
+- [x] div wrapper -> <></>
+- [x] Submit form with eneter
 
 ### Need to update following Details
 
 - [ ] Change createSotre to configureStore from redux-toolkit
-- [ ] Add keyon handler to form component
 - [ ] Try nanoid package
 - [ ] Try immer library
 - [ ] logger devtools
-- [ ] onClick(e) => delete(e.target.value)
-- [x] div wrapper -> <></>

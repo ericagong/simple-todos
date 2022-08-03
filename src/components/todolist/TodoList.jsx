@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import List from "../list/List";
 
 const TodoList = (props) => {
-  const allTodos = useSelector(({ todos }) => todos.todos);
+  const allTodos = useSelector((state) => state.todos.todos);
+
   const workingList = allTodos.filter((todo) => !todo.isDone);
   const doneList = allTodos.filter((todo) => todo.isDone);
   return (

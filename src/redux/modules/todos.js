@@ -58,7 +58,7 @@ const initialState = {
 };
 
 // Reducer
-export default function reducer(state = initialState, action = {}) {
+export default function todos(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD:
       return state;

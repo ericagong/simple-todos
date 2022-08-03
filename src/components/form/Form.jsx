@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTodo } from "../../redux/modules/todos";
 
-// TODO enter 쳤을 때도 기능하도록하기
 const Form = (props) => {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
@@ -18,7 +17,6 @@ const Form = (props) => {
       setContents(event.target.value);
     }
   };
-
   const addTodo = (event) => {
     event.preventDefault();
     const payload = { title, contents };
@@ -26,8 +24,9 @@ const Form = (props) => {
     setTitle("");
     setContents("");
   };
+
   return (
-    <StyledForm>
+    <StyledForm onsubmit={addTodo}>
       <StyledContainer>
         <StyledLabel htmlFor='title'>Title</StyledLabel>
         <StyledInput
@@ -35,6 +34,7 @@ const Form = (props) => {
           id='title'
           value={title}
           onChange={changeHandler}
+          required
         />
       </StyledContainer>
       <StyledContainer>
@@ -44,6 +44,7 @@ const Form = (props) => {
           id='contents'
           value={contents}
           onChange={changeHandler}
+          required
         />
       </StyledContainer>
       <StyledButton
@@ -92,7 +93,10 @@ const StyledButton = styled.button`
   height: 30px;
   background-color: #256ef1;
   color: white;
-  &:hover {
+  &:disabled {
+    background-color: gray;
+  }
+  &:not(:disabled) + &:hover {
     transform: scale(1.1);
   }
 `;
