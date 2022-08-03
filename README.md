@@ -57,7 +57,8 @@
 
 ### Need to update following Details
 
+- [ ] PropTypes
 - [ ] Change createStore to configureStore from redux-toolkit
-- [ ] Try nanoid package
+- [x] Try nanoid package -> need to check
 - [ ] Try immer library
-- [ ] logger devtools
+- [x] logger devtools

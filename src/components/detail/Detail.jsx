@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const Detail = (props) => {
   const { todo_id } = useParams();
   const todo = useSelector(({ todos }) =>
-    todos.todos.find((todo) => todo.id === parseInt(todo_id))
+    todos.todos.find((todo) => todo.id === todo_id)
   );
   const navigate = useNavigate();
   const clickHandler = () => {

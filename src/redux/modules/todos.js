@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 // Actions
 const LOAD = "todoList/todos/LOAD";
 const CREATE = "todoList/todos/CREATE";
@@ -25,31 +27,31 @@ export function removeTodo(payload) {
 const initialState = {
   todos: [
     {
-      id: 0,
+      id: "a",
       title: "Wake up in the morning",
       contents: "Don't sleep over 8 hours!",
       isDone: true,
     },
     {
-      id: 1,
+      id: "b",
       title: "Prepare present for HH",
       contents: "Check following options: 1. wallet 2. galaxy watch",
       isDone: false,
     },
     {
-      id: 2,
+      id: "c",
       title: "Order snacks for Star - he needs snack desperately",
       contents: "1. partymix * 30 2. CIAOchur * 5 packs",
       isDone: false,
     },
     {
-      id: 3,
+      id: "d",
       title: "Talk with mommy",
       contents: "explain about my planB, which means nothing.",
       isDone: true,
     },
     {
-      id: 4,
+      id: "e",
       title: "Get in gather town",
       contents: "CS study @ 11:00 Team meeting @ 16:00",
       isDone: true,
@@ -63,10 +65,8 @@ export default function todos(state = initialState, action = {}) {
     case LOAD:
       return state;
     case CREATE:
-      const todo_ids = state.todos.map((todo) => todo.id);
-      const new_id = Math.max(...todo_ids) + 1;
       const new_todo = {
-        id: new_id,
+        id: nanoid(),
         title: action.payload.title,
         contents: action.payload.contents,
         isDone: false,
