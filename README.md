@@ -57,7 +57,7 @@
 
 ### Need to update following Details
 
-- [ ] Change createSotre to configureStore from redux-toolkit
+- [ ] Change createStore to configureStore from redux-toolkit
 - [ ] Try nanoid package
 - [ ] Try immer library
 - [ ] logger devtools
