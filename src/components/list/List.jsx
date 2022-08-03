@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import Proptypes from "prop-types";
 
 import Todo from "../todo/Todo";
 
 const List = ({ list }) => {
-  // TODO key 값 nanoid 패키지 사용해보기!?!!
   const todos = list.map((todo) => (
     <Todo
       key={todo.id}
@@ -23,3 +23,7 @@ const StyledList = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `;
+
+List.propTypes = {
+  list: Proptypes.array,
+};

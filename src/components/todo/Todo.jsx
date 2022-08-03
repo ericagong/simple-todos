@@ -3,8 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateTodo, removeTodo } from "../../redux/modules/todos";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-// id 기반 상세 페이지 전환 라우터 연결하기!
 const Todo = ({ id, title, contents, isDone }) => {
   const dispatch = useDispatch();
   const payload = { id };
@@ -38,6 +38,13 @@ const Todo = ({ id, title, contents, isDone }) => {
 };
 
 export default Todo;
+
+Todo.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  contents: PropTypes.string.isRequired,
+  isDone: PropTypes.bool.isRequired,
+};
 
 const StyledBox = styled.div`
   width: 300px;
