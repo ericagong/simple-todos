@@ -62,3 +62,5 @@
 - [x] Try nanoid package -> need to check
 - [ ] Try immer library
 - [x] logger devtools
+- [ ] useCallback optimization
+- [ ] change update reducer to find() function, change remove with findIndex(), splice()

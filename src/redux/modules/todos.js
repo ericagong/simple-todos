@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import produce from "immer";
 
 // Actions
 const LOAD = "todoList/todos/LOAD";
@@ -71,21 +72,33 @@ export default function todos(state = initialState, action = {}) {
         contents: action.payload.contents,
         isDone: false,
       };
-      const new_todos = [...state.todos, new_todo];
-      return { ...state, todos: new_todos };
-    case UPDATE:
-      const updated_todos = state.todos.map((todo) => {
-        if (todo.id === action.payload.id) {
-          const updated_todo = { ...todo, isDone: !todo.isDone };
-          return updated_todo;
-        } else return todo;
+      return produce(state, (draft) => {
+        draft.todos.push(new_todo);
       });
-      return { ...state, todos: updated_todos };
+    // return { ...state, todos: new_todos };
+    case UPDATE:
+      // const updated_todos = state.todos.map((todo) => {
+      //   if (todo.id === action.payload.id) {
+      //     const updated_todo = { ...todo, isDone: !todo.isDone };
+      //     return updated_todo;
+      //   } else return todo;
+      // });
+      return produce(state, (draft) => {
+        const todo = draft.todos.find((todo) => todo.id === action.payload.id);
+        todo.isDone = !todo.isDone;
+      });
+    // return { ...state, todos: updated_todos };
     case REMOVE:
-      const deleted_todos = state.todos.filter(
-        (todo) => todo.id !== action.payload.id
-      );
-      return { ...state, todos: deleted_todos };
+      // const deleted_todos = state.todos.filter(
+      //   (todo) => todo.id !== action.payload.id
+      // );
+      return produce(state, (draft) => {
+        const index = draft.todos.findIndex(
+          (todo) => todo.id === action.payload.id
+        );
+        draft.todos.splice(index, 1);
+      });
+    // return { ...state, todos: deleted_todos };
     default:
       return state;
   }
